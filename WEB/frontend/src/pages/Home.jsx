@@ -6,6 +6,8 @@ import { FaPlayCircle, FaArrowRight, FaUsers, FaBookOpen, FaAward } from 'react-
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  // Đã kích hoạt lại state quản lý ẩn/hiện video chuẩn chỉnh ở đây
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -52,13 +54,34 @@ const Home = () => {
             
             <div className="col-lg-6 position-relative text-center">
               <div className="p-3 border border-secondary border-opacity-50 rounded-4 glass-card bg-opacity-25 shadow-lg position-relative d-inline-block overflow-hidden">
-                <div className="img-fallback rounded-3 shadow-lg" style={{ width: '100%', maxWidth: '500px', height: '320px', aspectRatio: '16/9' }}>
-                  <div className="p-4">
-                    <FaPlayCircle size={60} className="text-primary mb-3 cursor-pointer hover-scale" />
-                    <h5 className="text-white">Learn AWS, React 19, & NodeJS</h5>
-                    <p className="text-muted small">Watch 2-minute project walkthrough</p>
+                
+                {/* Sửa lại logic hoán đổi render linh hoạt giữa nút bấm và Iframe */}
+                {showVideo ? (
+                  <iframe
+                    width="100%"
+                    style={{ width: '500px', height: '320px', maxWidth: '100%' }}
+                    src="https://www.youtube.com/embed/QtE00VP4W3Y?si=U7m0IiJfWNESxN26&autoplay=1"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="rounded-3 shadow-lg"
+                  ></iframe>
+                ) : (
+                  <div 
+                    className="img-fallback rounded-3 shadow-lg cursor-pointer" 
+                    style={{ width: '100%', maxWidth: '500px', height: '320px', aspectRatio: '16/9' }}
+                    onClick={() => setShowVideo(true)}
+                  >
+                    <div className="p-4">
+                      <FaPlayCircle size={60} className="text-primary mb-3 cursor-pointer hover-scale" />
+                      <h5 className="text-white">Learn AWS, React 19, & NodeJS</h5>
+                      <p className="text-muted small">Watch 2-minute project walkthrough</p>
+                    </div>
                   </div>
-                </div>
+                )}
+
               </div>
             </div>
           </div>

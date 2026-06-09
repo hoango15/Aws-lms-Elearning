@@ -15,6 +15,11 @@ const app = express();
 // Standard middleware
 app.use(cors());
 app.use(express.json());
+
+
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
+
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static uploaded files (course thumbnails and avatars)
