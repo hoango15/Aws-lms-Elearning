@@ -1,0 +1,35 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Environment configurations (nhạy cảm, không push lên git)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env
+
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
+
+# IDE / Editor configuration files
+.idea/
+.vscode/
+*.suo
+*.ntvsca
+*.njsproj
+*.sln
+*.sw?
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Docker database volume & upload folder data
+db_data/
+backend/uploads/*
+!backend/uploads/.gitkeep
