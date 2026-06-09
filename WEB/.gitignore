@@ -31,5 +31,5 @@ Thumbs.db
 
 # Docker database volume & upload folder data
 db_data/
-backend/uploads/*
-!backend/uploads/.gitkeep
+# backend/uploads/*
+# !backend/uploads/.gitkeep
