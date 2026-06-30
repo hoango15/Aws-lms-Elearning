@@ -5,6 +5,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ChatBox from './components/ChatBox';
 
 // Page imports
 import Home from './pages/Home';
@@ -102,6 +103,7 @@ function App() {
           </main>
           
           <Footer />
+          <ChatBox />
             </div>
           </Router>
         </AuthProvider>
